@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-md-12">
+        <section class="pontuacao">
+            <i class="fa fa-gamepad"></i>&nbsp;<span class="moves">0</span> Jogada(s)
+            <div class="timer"></div>
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <ul class="container-game" id="cartao-deck">
+            <li class="cartao" type="carro">
+
+            </li>
+            <li class="cartao" type="cavalo">
+
+            </li>
+            <li class="cartao match" type="dog">
+
+            </li>
+            <li class="cartao" type="golfinho">
+
+            </li>
+            <li class="cartao" type="maquina">
+
+            </li>
+            <li class="cartao match" type="dog">
+
+            </li>
+            <li class="cartao" type="mergulho">
+
+            </li>
+            <li class="cartao" type="piscina">
+
+            </li>
+            <li class="cartao" type="carro">
+
+            </li>
+            <li class="cartao" type="relogio">
+
+            </li>
+            <li class="cartao" type="mergulho">
+
+            </li>
+            <li class="cartao" type="relogio">
+
+            </li>
+            <li class="cartao open show" type="golfinho">
+
+            </li>
+            <li class="cartao" type="piscina">
+
+            </li>
+            <li class="cartao" type="cavalo">
+
+            </li>
+            <li class="cartao" type="maquina">
+
+            </li>
+
+            <li class="cartao" type="urso">
+
+            </li>
+            <li class="cartao" type="sinuca">
+
+            </li>
+            <li class="cartao" type="sinuca">
+
+            </li>
+            <li class="cartao" type="urso">
+
+            </li>
+
+        </ul>
+        <button ng-click=openModal() type="button" class="btn btn-dark btn-lg mx-auto d-block">NOVA JOGADA</button>
+    </div>
+    <!-- RANKING -->
+    <div class="col-md-4">
+        <div class="card">
+            <h5 class="card-header">Ranking</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" ng-repeat="p in players; track by $index">{{$index+1}} - <strong>Nome:</strong> {{p.name}} <br /> <strong>Jogadas:</strong> {{p.moves}} <br /> <strong>Tempo:</strong> {{p.time}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.container-game {
+    background-color: #f8f9fa;
+    width: 85%;
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.container-game .cartao {
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    background: #a92e2e;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.container-game .cartao.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.container-game .cartao.show {
+    font-size: 33px;
+}
+
+.container-game .cartao.match {
+    cursor: default;
+    background: #000;
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.container-game .cartao.unmatched {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    background: #e2043b;
+}
+
+.container-game .cartao.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.pontuacao {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+
+/* animations */
+
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+    to {
+        transform: perspective(400px);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+/****** Media ***************************/
+
+@media (max-width: 320px) {
+    .deck {
+        width: 85%;
+    }
+    .deck .cartao {
+        height: 4.7rem;
+        width: 4.7rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        font-size: 22px;
+    }
+    .container-game {
+        background-clip: #f8f9fa;
+        width: 688px;
+        height: 680px;
+    }
+    .container-game .cartao {
+        height: 125px;
+        width: 155px;
+    }
+    .popup {
+        width: 60%;
+    }
+}
+
+.list-group {
+    font-size: 16px !important;
+}
